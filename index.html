@@ -180,8 +180,8 @@
     </nav>
   </header>
   <div id="accountButtons">
-    <button class="header-account-button">Login</button>
-    <button class="header-account-button">Register</button>
+    <button class="header-account-button" onclick="redirectToLogin()">Login</button>
+    <button class="header-account-button" onclick="redirectToRegister">Register</button>
   </div>
   <body>
 
@@ -213,6 +213,14 @@
 
       function redirectToBooking() {
             window.location.href = './Pages/booking.html';
+        }
+
+        function redirectToLogin() {
+            window.location.href = './Pages/login.html';
+        }
+
+        function redirectToRegister() {
+            window.location.href = './Pages/register.html';
         }
 
       function bookNow() {
