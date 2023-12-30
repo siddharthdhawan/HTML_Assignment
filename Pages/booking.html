@@ -310,8 +310,8 @@
       </nav>
     </header>
     <div id="accountButtons">
-      <button class="header-account-button">Login</button>
-      <button class="header-account-button">Register</button>
+      <button class="header-account-button" onclick="redirectToLogin()">Login</button>
+    <button class="header-account-button" onclick="redirectToRegister()">Register</button>
     </div>
 
     <div class="row">
@@ -615,6 +615,14 @@
         currentIndex = (currentIndex + direction + images.length) % images.length;
         document.querySelector('.image-container img').src = images[currentIndex];
       }
+
+      function redirectToLogin() {
+            window.location.href = './Pages/login.html';
+        }
+
+        function redirectToRegister() {
+            window.location.href = './Pages/register.html';
+        }
     </script>
   </body>
 </html>
