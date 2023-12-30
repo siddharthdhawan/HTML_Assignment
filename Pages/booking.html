@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>booking</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #0f0f0f;
+      }
+
+      header {
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        background-color: rgb(242, 6, 6);
+        color: #fff;
+      }
+
+      .Service {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        background-color: rgb(242, 6, 6);
+        color: #fff;
+        margin-top: 10px;
+      }
+
+      #logo {
+        width: 100px;
+        height: 100px;
+      }
+
+      #brandName {
+        display: inline;
+        float: left;
+        margin-left: 10px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #fff;
+        margin: 0 15px;
+      }
+
+      nav ul {
+        list-style: none;
+        display: flex;
+        margin-left: 50px;
+      }
+
+      nav ul li {
+        position: relative;
+        margin-left: 30px;
+      }
+
+      nav ul li a:hover {
+        color: #333;
+      }
+
+      .Service-nav ul li a:hover {
+        color: #fff;
+      }
+
+      #accountButtons {
+        top: 30px;
+        right: 0px;
+        position: absolute;
+        padding: 0px;
+      }
+
+      .header-account-button {
+        margin-left: 20px;
+        margin-bottom: 5px;
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s, color 0.3s;
+        border: none;
+        outline: none;
+        background-color: #0f0f0f;
+        color: #fff;
+      }
+
+      .header-account-button:hover {
+        background-color: #f2f2f2;
+        color: #333;
+      }
+
+      .row {
+        display: flex;
+        width: 100%;
+        margin-top: 10px;
+      }
+      .section {
+        width: 50%;
+        box-sizing: border-box;
+        padding: 0px;
+      }
+      .image-section {
+        background: rgb(242, 6, 6);
+        text-align: center;
+      }
+      .form-section {
+        background: #f38f03;
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+      }
+      input,
+      select,
+      textarea {
+        margin-bottom: 10px;
+        padding: 8px;
+        margin-left: 25%;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+
+      .form-book-now {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s, color 0.3s;
+        border: none;
+        outline: none;
+        background-color: #0f0f0f;
+        color: #fff;
+        max-width: 49%;
+        margin-left: 25%;
+        margin-bottom: 10px;
+      }
+
+      .form-book-now:hover {
+        background-color: rgb(242, 6, 6);
+        color: #fff;
+      }
+
+      .package-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+        background: rgb(242, 6, 6);
+        margin-top: 10px;
+      }
+      .package-card {
+        width: 30%;
+        box-sizing: border-box;
+        padding: 20px;
+        margin-bottom: 10px;
+        background: #0f0f0f;
+        color: #fff;
+        border-radius: 15px;
+      }
+      .services-section {
+        padding: 20px;
+        background: #c0c0c0;
+      }
+
+      .package-card:hover {
+        background-color: #fff;
+        color: #0f0f0f;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, color 0.3s, transform 0.3;
+      }
+
+      .package-card:hover button {
+        background-color: #0f0f0f;
+        color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, color 0.3s, transform 0.3;
+      }
+
+      .book-package {
+        display: inline-block;
+        padding: 15px 30px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s, color 0.3s;
+        border: none;
+        outline: none;
+        background-color: #fff;
+        color: #0f0f0f;
+        max-width: 49%;
+        margin-left: 29%;
+        margin-bottom: 10px;
+      }
+
+
+      .image-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: whitesmoke;
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 400px;
+      transition: transform 0.3s ease;
+    }
+
+    .image-container:hover img {
+      transform: scale(0.9); /* Zoom out effect on hover */
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: rgb(7, 7, 7);
+      outline: none;
+      padding: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+
+    .arrow:hover {
+      background-color: rgba(132, 132, 132, 0.5);
+    }
+
+    .left-arrow {
+      left: 0;
+    }
+
+    .right-arrow {
+      right: 0;
+    }
+
+
+    .social-icons {
+      margin-top: 10px;
+      height: 10px;
+    }
+
+    .social-icons li a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 20px;
+    }
+
+    .copyright {
+      margin-top: 10px;
+    }
+
+    footer {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        background-color: #0f0f0f;
+        color: #fff
+      }
+      .footer-nav{
+        margin-left: 15%;
+      }
+
+      .footer-nav ul li a:hover {
+        color: #fff;
+      }
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <img id="logo" src="../img/Brand_logo.png" />
+      </div>
+      <h1 id="brandName">Xpress Trip</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Book</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Gallery</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div id="accountButtons">
+      <button class="header-account-button">Login</button>
+      <button class="header-account-button">Register</button>
+    </div>
+
+    <div class="row">
+      <div class="section image-section">
+        <img
+          src="../img/Brand_logo.png"
+          alt="Brand Image"
+          style="
+            max-width: 50%;
+            background-color: rgb(242, 6, 6);
+            margin-top: 15px;
+          "
+        />
+      </div>
+      <div class="section form-section">
+        <form id="bookingForm">
+          <label for="whereTo">Where to:</label>
+          <select id="whereTo" name="whereTo" style="max-width: 50%" required>
+            <option value="place1">Agra</option>
+            <option value="place2">London</option>
+            <option value="place3">Dubai</option>
+            <option value="place4">Jaipur</option>
+          </select>
+
+          <label for="numPersons">How Many Persons:</label>
+          <input
+            type="number"
+            id="numPersons"
+            name="numPersons"
+            min="1"
+            style="max-width: 47%"
+            required
+          />
+
+          <label for="startDate">Start Date:</label>
+          <input
+            type="date"
+            id="startDate"
+            name="startDate"
+            style="max-width: 47%"
+            required
+          />
+
+          <label for="endDate">End Date:</label>
+          <input
+            type="date"
+            id="endDate"
+            name="endDate"
+            style="max-width: 47%"
+            required
+            disabled
+          />
+
+          <label for="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            minlength="50"
+            maxlength="500"
+            style="max-width: 47%"
+            required
+          ></textarea>
+
+          <button type="button" id="form-book-now" class="form-book-now">
+            Book Now
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="package-gallery">
+      <div class="package-card">
+        <img
+          src="../img/DELHI.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Delhi</h3>
+        <p>India Gate, Capital of India</p>
+        <p>Price: $100</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Mumbai.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Mumbai</h3>
+        <p>Bollywood town of India</p>
+        <p>Price: $120</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Agra.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Agra</h3>
+        <p>Taj Mahal, 8 wonders of the world</p>
+        <p>Price: $160</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/prayagraj.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Prayagraj</h3>
+        <p>Sangam, dive into the holy water</p>
+        <p>Price: $100</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/varanasi.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Varanasi</h3>
+        <p>Kashi Temple, Oldest city in India</p>
+        <p>Price: $140</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Rajasthan.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Rajasthan</h3>
+        <p>Forts and beautiful desserts</p>
+        <p>Price: $100</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Bengaluru.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Bengaluru</h3>
+        <p>IT Hub of India.</p>
+        <p>Price: $90</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Mussorie.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Mussorie</h3>
+        <p>Queen of hills</p>
+        <p>Price: $100</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+      <div class="package-card">
+        <img
+          src="../img/Manali.jpeg"
+          alt="Package 1"
+          style="max-width: 100%; border-radius: 15px"
+        />
+        <h3>Manali</h3>
+        <p>Heaven on Earth</p>
+        <p>Price: $140</p>
+        <p>Rating: 4.5</p>
+        <button class="book-package">Book Now</button>
+      </div>
+    </div>
+  
+
+    <div class="Service">
+
+      <nav class="Service-nav">
+        <ul>Services Offer by us:</ul>
+        <ul>
+          <li><a href="#">Affordable Hotel</a></li>
+          <li><a href="#">Food & Drinks</a></li>
+          <li><a href="#">Safety Guide</a></li>
+          <li><a href="#">Airport Cab</a></li>
+          <li><a href="#">Restaurants</a></li>
+          <li><a href="#">Trip Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="image-container">
+      <h1 style="text-align: center;">Glimpse Experienced by our customer</h1>
+      <button class="arrow left-arrow" onclick="changeImage(-1)">❮</button>
+      <img src="../img/Agra.jpeg" alt="Image">
+      <button class="arrow right-arrow" onclick="changeImage(1)">❯</button>
+    </div>
+
+    <div class="row">
+      <div class="section image-section">
+        <img
+          src="../img/Brand_logo.png"
+          alt="Brand Image"
+          style="
+            max-width: 50%;
+            background-color: rgb(242, 6, 6);
+            margin-top: 15px;
+          "
+        />
+      </div>
+      <div class="section form-section" style="padding: 20px;">
+        <h1>About Us</h1>
+        <p> <strong>Welcome to Xpress Trip - Your Travel Partner</strong></p>
+        <p>        
+          Xpress Trip Established in 2000,where your journey begins and memorable adventures unfold! We are your one-stop travel solution, committed to making your travel dreams a reality. With a passion for exploration and a dedication to exceptional service, we redefine the way you experience the world.
+        </p>
+        <p><strong> Why Choose us:</strong></p>
+        <p><b>Personalized Service:</b> We understand that every traveler is unique, and so are their preferences. Our personalized approach ensures that your travel experience is crafted to meet your individual needs.
+          <br/>
+          <b>&nbsp Reliability:</b> Trust is the foundation of any successful journey. With a commitment to reliability and excellence, we strive to exceed your expectations at every step of your adventure.
+          <br/>
+          <b>&nbsp 24/7 Support::</b> Your peace of mind is our priority. Our customer support team is available 24/7 to assist you with any queries or concerns, ensuring a smooth and worry-free travel experience.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <h1 id="brandName">Xpress Trip</h1>
+      <nav class="footer-nav">
+        <div class="social-icons"></div>
+        <ul>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li>&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &copy; 2023 Your Company Name. All rights reserved.</li>
+        </ul>
+      </div>
+      </nav>
+    </footer>
+
+    <script>
+      window.onload = function () {
+        var currentDate = new Date().toISOString().split("T")[0];
+        document.getElementById("startDate").min = currentDate;
+
+        document
+          .getElementById("startDate")
+          .addEventListener("change", function () {
+            var startDate = new Date(this.value);
+            startDate.setDate(startDate.getDate() + 1); // Increment by one day
+            var nextDay = startDate.toISOString().split("T")[0];
+            document.getElementById("endDate").min = nextDay;
+            document.getElementById("endDate").disabled = false;
+          });
+
+        document
+          .getElementById("form-book-now")
+          .addEventListener("click", function () {
+            var startDateValue = document.getElementById("startDate").value;
+            var endDateValue = document.getElementById("endDate").value;
+            var descriptionValue = document.getElementById("description").value;
+            var numPersonsValue = document.getElementById("numPersons").value;
+            var whereToValue = document.getElementById("whereTo").value;
+
+            var descriptionElement = document.getElementById("description");
+
+            if (descriptionValue.length < 50) {
+              alert("Description should be at least 50 characters.");
+              return;
+            }
+            if (
+              startDateValue &&
+              endDateValue &&
+              descriptionValue &&
+              numPersonsValue &&
+              whereToValue
+            ) {
+              alert("Done!");
+              document.getElementById("startDate").value = "";
+              document.getElementById("endDate").value = "";
+              document.getElementById("description").value = "";
+              document.getElementById("numPersons").value = "";
+              document.getElementById("whereTo").value = "";
+            } else {
+              // Fields are missing, show an error message
+              alert("Please fill in all fields.");
+            }
+          });
+      };
+      
+      let currentIndex = 0;
+      const images = ["../img/Agra.jpeg", "../img/Mumbai.jpeg", "../img/Manali.jpeg"];
+  
+      function changeImage(direction) {
+        currentIndex = (currentIndex + direction + images.length) % images.length;
+        document.querySelector('.image-container img').src = images[currentIndex];
+      }
+    </script>
+  </body>
+</html>
